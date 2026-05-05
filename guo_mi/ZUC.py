@@ -133,5 +133,4 @@ key = b'0' * 16
 iv = b'0' * 16
 zuc = ZUC(key, iv)
 
-print(bin(0x7fff8000)[2:])
-print(bin(0xffff8000)[2:])
+
