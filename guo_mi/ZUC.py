@@ -137,13 +137,21 @@ class ZUC:
 
     def encrypt(self, plaintext):
         ciphertext = bytearray()
-        for i in range(len(plaintext)):
+        L = (len(plaintext) + 3) // 4  # 向上取整
+        
+        for i in range(L):
             self.BitReconstruction()
             W = self.F(self.X[0], self.X[1], self.X[2])
             Z = W ^ self.X[3]
             self.LFSRWithWorkMode()
-            print(f'Z{i} = {hex(Z)[2:]}')
-            ciphertext.append(plaintext[i] ^ (Z >> (24 - 8 * (i % 4))) & 0xff)
+            print(f'Z{i} = {hex(Z)[2:].zfill(8)}')
+            
+            # 每个Z处理4个字节
+            for j in range(4):
+                idx = i * 4 + j
+                if idx < len(plaintext):
+                    ciphertext.append(plaintext[idx] ^ ((Z >> (24 - 8 * j)) & 0xFF))
+        
         return bytes(ciphertext)
     
     def decrypt(self, ciphertext):
