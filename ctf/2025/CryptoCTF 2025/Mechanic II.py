@@ -4,7 +4,6 @@ from Crypto.Util.number import *
 from hashlib import sha1
 from ast import literal_eval
 import string
-
 from tqdm import trange
 
 p = remote("node1.anna.nssctf.cn",26997)
