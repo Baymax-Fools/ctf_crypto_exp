@@ -22,7 +22,9 @@ print(d)
 print(long_to_bytes(m))
 print(m)
 
-
+# 更高效的方式可以使用小费马定理
+# p = GCD(pow(2, e*dp, n) - 2, n)
+# q = n // p
 
 
 
