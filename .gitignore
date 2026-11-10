@@ -3,3 +3,10 @@ z_practices/
 .idea/
 __pycache__/
 misc/
+guo_mi/
+set_practice/
+.dsh-pdf-reader/
+.dsh-vision-router/
+.pip-tmp/
+.vscode/
+ctf_crp/
